@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 // Schema for User Collection
 const NotesSchema = new Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
     title: {
         type: String,
         required: true
@@ -21,6 +26,6 @@ const NotesSchema = new Schema({
 });
 
 // model for User collection based on the schema
-const Notes = mongoose.model('Notes', NotesSchema);
+const Notes = mongoose.model('note', NotesSchema);
 
 module.exports = Notes;
